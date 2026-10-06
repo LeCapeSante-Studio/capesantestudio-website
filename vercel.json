@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/((?!assets/|robots\\.txt$|sitemap\\.xml$|favicon\\.ico$|index\\.html$|vulcanica$).+)",
+      "source": "/navigation-mobile",
       "destination": "/",
       "permanent": true
     }
