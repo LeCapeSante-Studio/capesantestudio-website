@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/((?!assets/|robots\\.txt$|sitemap\\.xml$|favicon\\.ico$|index\\.html$|vulcanica$).+)",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
