@@ -97,6 +97,12 @@ header.bar .right{justify-self:end;margin-right:clamp(0px,7vw,120px)}
 .contact ul{list-style:none;margin:0;padding:0;font-weight:500;font-stretch:112%;letter-spacing:1px;text-transform:uppercase;font-size:14px;display:grid;gap:8px;text-align:right}
 
 @media (max-width:760px){
+  html,body{height:auto}
+  body{padding:0;background:var(--bg)}
+  #stage{height:auto;border:0;border-radius:0;box-shadow:none;overflow:visible}
+  #flipper{height:auto}
+  #front{position:relative;overflow:visible}
+  #back{inset:auto 0;top:0;height:100vh;height:100dvh}
   header.bar{padding-block:22px 18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));gap:8px}
   .nav-label{font-size:11px;letter-spacing:.03em;white-space:nowrap}
   header.bar .left,header.bar .right{margin:0}
@@ -226,6 +232,7 @@ header.bar .right{justify-self:end;margin-right:clamp(0px,7vw,120px)}
       e.preventDefault();
       var go=function(){window.location.href=a.href};
       if(matchMedia('(prefers-reduced-motion: reduce)').matches){go();return}
+      if(matchMedia('(max-width:760px)').matches){var y=window.scrollY;document.getElementById('back').style.top=y+'px';stage.style.perspectiveOrigin='50% '+(y+window.innerHeight/2)+'px';}
       stage.classList.add('flipped'); setTimeout(go,950);
     });
   });
