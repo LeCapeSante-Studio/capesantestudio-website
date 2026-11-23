@@ -60,10 +60,11 @@ a{color:inherit}
 .front-bg{position:absolute;inset:0;background:var(--yellow)}
 #seavid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
 #front.sea #seavid{opacity:1}
-#front .on-video,#front .navlab,#front .corner,#front .social a,.bigname,.phand{transition:color .8s ease,text-shadow .8s ease,filter .8s ease}
-#front.sea .on-video,#front.sea .navlab,#front.sea .corner,#front.sea .social a,#front.sea .bigname,#front.sea .phand{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
-#front.sea .bigname .wm,#front.sea .phand,#front.sea .blob{filter:drop-shadow(0 2px 12px rgba(0,0,0,.3))}
-#front.sea .note{text-shadow:0 1px 0 rgba(255,255,255,.9),0 0 12px rgba(255,255,255,.75)}
+.phand{transition:color .8s ease}
+#front.sea .phand{color:var(--yellow)}
+.note{transition:opacity .6s ease}
+#front.sea .note{opacity:0;pointer-events:none}
+#front.sea .seabtn{pointer-events:none}
 .seabtn{all:unset;cursor:pointer;pointer-events:auto}
 .seabtn:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .seabtn:focus-visible{outline:2px solid var(--red);outline-offset:3px}
