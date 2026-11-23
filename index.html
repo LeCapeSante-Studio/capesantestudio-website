@@ -63,7 +63,9 @@ a{color:inherit}
 .phand{transition:color .8s ease}
 #front.sea .phand{color:var(--yellow)}
 .note{transition:opacity .6s ease}
-#front.sea .note{opacity:0;pointer-events:none}
+#front.sea .note,#front.sea .seanote{opacity:0;pointer-events:none}
+#front.sea .bigname .wm{color:#fff;filter:drop-shadow(0 2px 14px rgba(0,0,0,.35))}
+.bigname .wm{transition:color .8s ease,filter .8s ease}
 #front.sea .seabtn{pointer-events:none}
 .seabtn{all:unset;cursor:pointer;pointer-events:auto}
 .seabtn:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
@@ -77,9 +79,10 @@ a{color:inherit}
 .social a:hover{opacity:.6}
 .social a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .tagline{font-family:var(--text);font-weight:500;font-size:20px;line-height:1.2;letter-spacing:.01em;margin:0;text-transform:uppercase}
-.note{position:absolute;z-index:3;right:64px;bottom:200px;font-family:var(--hand);font-size:23px;line-height:1.3;color:var(--red);margin:0;max-width:340px;transform:rotate(-5deg);transform-origin:right bottom}
-.note .ch{opacity:0}
-.note .ch.on{opacity:1}
+.note{position:absolute;z-index:3;right:64px;bottom:280px;font-family:var(--hand);font-size:23px;line-height:1.3;color:var(--red);margin:0;max-width:340px;transform:rotate(-5deg);transform-origin:right bottom}
+.note .ch,.seanote .ch{opacity:0}
+.note .ch.on,.seanote .ch.on{opacity:1}
+.seanote{position:absolute;z-index:3;right:80px;bottom:196px;margin:0;font-family:var(--hand);font-size:23px;line-height:1.3;color:var(--red);transform:rotate(5deg);transform-origin:right top;transition:opacity .6s ease}
 
 .navc{position:absolute;top:44px;left:0;right:0;z-index:8;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;pointer-events:none}
 .navc .navitem:first-child{justify-self:end}
@@ -262,7 +265,8 @@ textarea.inp{height:78px;padding-top:8px;resize:vertical;border:1.5px solid var(
   .brandblock{top:22px;left:20px}
   .brandblock .mark{height:78px}
   .tagline{font-size:14px}
-  .note{font-size:17px;max-width:230px;right:22px;bottom:calc(118px + env(safe-area-inset-bottom,0px))}
+  .note{font-size:17px;max-width:230px;right:22px;bottom:calc(196px + env(safe-area-inset-bottom,0px))}
+  .seanote{font-size:17px;right:30px;bottom:calc(132px + env(safe-area-inset-bottom,0px))}
   .social{gap:14px;margin-top:14px}
   .social svg{width:18px;height:18px}
   .navc{position:absolute;inset:0;transform:none;display:block;pointer-events:none}
@@ -325,7 +329,7 @@ textarea.inp{height:78px;padding-top:8px;resize:vertical;border:1.5px solid var(
   .cap .cs-sub{font-size:15px;margin:8px 0}
 }
 @media (max-width:820px){#back>.corner{display:none}}
-@media (prefers-reduced-motion:reduce){.blob .g{animation:none}.phand,.phand path,.fhand path{animation:none;stroke-dashoffset:0}.note .ch{opacity:1}#flipper,#tongue,#contacts,.fade,.table img{transition:none}.shot{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.blob .g{animation:none}.phand,.phand path,.fhand path{animation:none;stroke-dashoffset:0}.note .ch,.seanote .ch{opacity:1}#flipper,#tongue,#contacts,.fade,.table img{transition:none}.shot{animation:none!important}}
 
 /* ---- banner cookie / analytics ---- */
 #ckb{position:fixed;z-index:200;left:50%;top:50%;width:min(400px,calc(100% - 32px));padding:22px 24px 18px;background:#DDA3C6;border-radius:20px;color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.18);font-size:14px;line-height:1.45;transform:translate(-50%,calc(-50% + 16px));opacity:0;transition:opacity .4s,transform .4s}
@@ -362,7 +366,8 @@ textarea.inp{height:78px;padding-top:8px;resize:vertical;border:1.5px solid var(
         </div>
       </nav>
 
-      <p class="note" id="typenote">Oooops! Scusate il pugno nell’occhio, ma questo giallo fluo ci stava piacendo troppo! <button type="button" class="seabtn" id="seabtn" aria-pressed="false">(Se ti va qui c’è il mare)</button></p>
+      <p class="note" id="typenote">Oooops! Scusate il pugno nell’occhio, ma questo giallo fluo ci stava piacendo troppo!</p>
+      <p class="seanote" id="seanote"><button type="button" class="seabtn" id="seabtn" aria-pressed="false">(Se ti va qui c’è il mare)</button></p>
       <button class="corner on-video" type="button" data-flip="1">Portfolio</button>
       <svg class="phand" viewBox="0 0 76 48" aria-hidden="true"><g filter="url(#sk)"><path pathLength="1" style="--k:0" d="M3.5 11.5 C3.5 10.6 4.2 10 5 10 L13.5 10.2 L13.8 40.4 L5.2 40.6 C4.2 40.6 3.6 40 3.6 39 Z"/><path pathLength="1" style="--k:1" d="M8.4 10.6 L8.6 40.2"/><path pathLength="1" style="--k:2" d="M13.8 13 C19.5 11 25.5 10.2 31 10.8 C40 11.4 55 11 66 11.4 C70.4 11.6 72.6 13.4 72.6 15.6 C72.6 17.8 70.6 19.2 67 19.2 L44.5 19.6"/><path pathLength="1" style="--k:3" d="M64.4 12.6 C67.8 12.8 69.8 14.2 69.8 15.6 C69.8 17 68.4 17.6 65.8 17.6"/><path pathLength="1" style="--k:4" d="M21.5 16.4 C27.5 19.6 36 21.4 44.5 19.6 C48 19 49.6 21.2 48.6 23.2 C47.6 25 45 25.6 41.4 25.3 L32.5 24.6"/><path pathLength="1" style="--k:5" d="M44.6 25.6 C48.4 26 49.8 28.2 48.8 30.2 C47.8 31.8 45.2 32.2 42.2 32 L31.4 31.6"/><path pathLength="1" style="--k:6" d="M42.4 32.1 C45.8 32.6 46.8 34.8 45.8 36.4 C44.8 37.8 42.2 38.2 39.2 38 L29.4 37.6"/><path pathLength="1" style="--k:7" d="M39.4 38.1 C42.2 38.8 42.4 41.4 40.4 42.4 C39 43.1 36.4 43.2 33.4 43 L24 42.6 C20 42.4 16.6 41.6 13.8 40.2"/><path pathLength="1" style="--k:8" d="M26 25.8 C27.6 27.2 28.4 28.6 28.6 30.2"/></g></svg>
 
@@ -455,13 +460,13 @@ textarea.inp{height:78px;padding-top:8px;resize:vertical;border:1.5px solid var(
   (function(){var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!calm){var tb=document.getElementById('skt'),sd=1;setInterval(function(){sd=sd%3+1;tb.setAttribute('seed',sd)},140);}
     var n=document.getElementById('typenote');if(!n||calm)return;var startT=function(){
-    var t=n.textContent,cs=[];
-    [].slice.call(n.childNodes).forEach(function wrap(nd){
+    var sn=document.getElementById('seanote'),t=n.textContent+sn.textContent,cs=[];
+    [].slice.call(n.childNodes).concat([].slice.call(sn.childNodes)).forEach(function wrap(nd){
       if(nd.nodeType===3){var f=document.createDocumentFragment();for(var i=0;i<nd.data.length;i++){var c=document.createElement('span');c.className='ch';c.textContent=nd.data[i];f.appendChild(c);cs.push(c);}nd.parentNode.replaceChild(f,nd);}
       else [].slice.call(nd.childNodes).forEach(wrap);
     });
     var k=0;
-    (function step(){ if(k===cs.length)return; cs[k].classList.add('on'); k++; setTimeout(step,t[k-1]==='!'?650:t[k-1]===' '?40:60+Math.random()*50); })();};
+    (function step(){ if(k===cs.length)return; cs[k].classList.add('on'); k++; setTimeout(step,k===n.textContent.length?900:t[k-1]==='!'?650:t[k-1]===' '?40:60+Math.random()*50); })();};
     setTimeout(startT,600);
   })();
 
